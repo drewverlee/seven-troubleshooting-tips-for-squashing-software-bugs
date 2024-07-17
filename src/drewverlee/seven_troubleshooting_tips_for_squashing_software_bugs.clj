@@ -65,8 +65,8 @@
 ;; Great, we hit our first tip, let's introduce the pain by understanding how we got there.
 
 ;; So then, imagine you're with your friends on a trip around Europe, and you stop and have lunch,
-; maybe at a peaceful out-of-the-way beer garden in Munchen, Germany.
-; At the end, a single bill. Not wanting to spoil the
+;; maybe at a peaceful out-of-the-way beer garden in Munchen, Germany.
+;; At the end, a single bill. Not wanting to spoil the
 ;; moment with the technicalities, you offer graciously to pay for everyone.
 ;; Tomorrow, at dinner, someone else covers the bill. The trend of having
 ;; someone pay for the group continues.
