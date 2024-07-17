@@ -19,10 +19,10 @@
 
 ;; Too short? Maybe, but I fear the full story would be too long.
 
-;; Can we settle on somewhere in between? Maybe find that middle ground between
+;; Can we settle somewhere in between? Maybe find that middle ground between
 ;; a flattering short lie, and the confusing long truth.
 
-;; And so will go on an journey to collect my seven favorite trouble shootings tips!
+;; And so we will go on a journey to collect my seven favorite troubleshooting tips!
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (import '(javax.imageio ImageIO))
@@ -30,17 +30,17 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (ImageIO/read (.toURL (.toURI (clojure.java.io/file "resources/journey-start.png"))))
 
-;; But we warned! Journeys aren't straight lines. Oh no, there winding rivers
+;; But we warned! Journeys aren't straight lines. Oh no, they are winding rivers
 ;; that flows back into themselves. The landscape around us changes very little, and
 ;; in the end, it's our precipitations, and not the world, the bends.
 
-;; So then, let me set you along the riverbank at a place which could be called
+;; So then, let me set you along the riverbank at a place that could be called
 ;; a beginning. From there, you will travel onward until the end, and your task will be to
 ;; keep your eyes open and see if you can catch the bug before it bites us.
 
-;; Let me motivate the problem we are trying to solve, after all, if you don't
+;; Let me motivate the problem we are trying to solve. After all, if you don't
 ;; understand the pain, how can you hope to understand what there is to gain?
-;; That sounds catchy, let's write it down as our first troubleshooting tip:
+;; That sounds catchy. Let's write it down as our first troubleshooting tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (defn tip
@@ -64,14 +64,14 @@
 
 ;; Great, we hit our first tip, let's introduce the pain by understanding how we got there.
 
-;; So then, imagine you're with your friends on a trip to Europe, and you stop and have lunch,
-;; maybe at peaceful out of the way beer garden in Munchen, Germany.
-;; At the end a single bill. Not wanting to spoil the
+;; So then, imagine you're with your friends on a trip around Europe, and you stop and have lunch,
+;; maybe at a peaceful out-of-the-way beer garden in Munchen, Germany.
+;; At the end, a single bill. Not wanting to spoil the
 ;; moment with the technicalities, you offer graciously to pay for everyone.
-;; Tomorrow, at dinner, someone else covers the part. The trend of having
+;; Tomorrow, at dinner, someone else covers the bill. The trend of having
 ;; someone pay for the group continues.
 
-;; However at the end of the trip, everyone suddenly becomes concerned that they
+;; However, at the end of the trip, everyone suddenly becomes concerned that they
 ;; didn't pay enough, but they are not sure who owes who what. Here is our painful
 ;; headache, we avoided the cost of settling up each night, only to delay it
 ;; until the end. As a result, we have a ledger of debts that need to be balanced,
@@ -182,7 +182,7 @@
 ^{:nextjournal.clerk/visibility {:result :hide}}
 (declare loans->minimal-loans)
 
-;; Our tests should always have to justify themselves with a name, that way if they fail, we have some idea of what we thought we were testing in the first place. Before the tests, let your eyes wander across the graph representations:
+;; Our tests should always have to justify themselves with a name; that way, if they fail, we have some idea of what we thought we were testing in the first place. Before the tests, let your eyes wander across the graph representations:
 
 ^{:nextjournal.clerk/visibility {:result :hide :code :hide}}
 (def test-cases
@@ -272,7 +272,7 @@
              {:loaner "merry", :loanee "pippin", :loan 1604}
              {:loaner "pippin", :loanee "sam", :loan 204}}))))
 
-;; Nice! Were almost ready to try and code a solution. You might have noticed that we have two forms of expressing a loan, a hashmap:
+;; Nice! We are almost ready to try and code a solution. You might have noticed that we have two forms of expressing a loan, a hashmap:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
 {:loaner "drew" "loanee" "kirsten" :loan 10}
@@ -284,11 +284,11 @@
 
 ;; both of these are correct in their own way, and it's worth having both
 ;; because the hashmap carries the business terminology, while the edge is more
-;; generic, concise, and will make it easier to pattern match
+;; generic, concise, and will make it easier to pattern-match
 ;; our problem to others and re-use concepts from algorithms, graph theory,
 ;; mathematics etc...
 
-;; I like this idea, lets add it to our troubleshooting tips as:
+;; I like this idea; let's add it to our troubleshooting tips:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Map the translation"
@@ -380,7 +380,7 @@
 
 ;; it looks like our test cases, while helping us refine our idea, will need
 ;; some translation from our existing cases which deal with edges to nodes, luckily we have a function for that `edges->nodes`
-;; we can just apply that and continue with the addition of one extra test to capture that without two lists we could add a transaction.
+;; we can just apply that and continue with adding one extra test to capture that without two lists, we could add a transaction.
 
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
@@ -437,8 +437,8 @@
 (def integers [-9 -8 -4 -2 -1 3 5 6 10])
 
 ;; Does anything jump out at you? I don't know why it would, but let me show you
-;; in a picture why this set of integers is interesting. To do that, first lets
-;; turn it into a list of nodes. First we make a helper to convert integers into
+;; in a picture why this set of integers is interesting. To do that, first, lets
+;; turn it into a list of nodes. First, we make a helper to convert integers into
 ;; nodes by assigning the node-label a character as a node-id:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
@@ -534,17 +534,17 @@
        (mapcat nodes->edges)
        edges->graph!))
 
-;; and we can use to go from a set of integers to a graph:
+;; and we can use it to go from a set of integers to a graph:
 
 (integers->min-edge-graph! integers)
 
-;; Great! Except here is another function, that takes the same set of integers, and finds what is clearly less transactions/loans/edges:
+;; Great! Except here is another function that takes the same set of integers and finds what is clearly less transactions/loans/edges:
 
 (integers->min-edge-graph-v2! integers)
 
 ;; This is the Bug! Our tips so far weren't enough to protect us from it, but that's ok because we're only halfway through them. And before we take the next step and tackle this pest, I want to take a moment and discuss why i think it's important to actually take a step back and think about how we framed this issue in the first place by calling it a bug.
 
-;; In the software community a 'bug' commonly refers to any issue with where
+;; In the software community a 'bug' commonly refers to any issue where
 ;; software is involved. Sounds vague? It is. Wikipedia's definition doesn't make things any more clear:
 
 ;; > A software bug is a bug in computer software.
@@ -556,8 +556,8 @@
 ;; That's only marginally better. Let's look outside tech to get a broader
 ;; perspective. To an entomologist, someone who studies bugs, a bug is anything
 ;; with a piercing mouth that sucks juices from plants or animals.
-;; Interestingly, maybe a 1,000 years ago 'bug' roughly meant bugbear. And now ,
-;; to most people refers to those very little things that fly or crawl around.
+;; Interestingly, maybe a 1,000 years ago, 'bug' roughly meant bugbear. And now,
+;; to most people it refers to those very little things that fly or crawl around.
 
 ;; The common theme here is that bugs are useless at best and likely irritating creatures that most would like to remove, which is why we call it 'debugging software'.
 
@@ -565,15 +565,15 @@
 
 ;; Often, instead, what's happened is that the author understands the program they have written, and how it will behave, but doesn't really understand what the objective is. For example, imagine a gardener who accidentally bought sunflowers seeds when they meant to buy tomato plant seeds. They dig, plant, water, wait, compost, all to end up with sunflowers. Would you suggest they start the process of getting what they want by seeing what they can remove from their sunflowers?
 
-;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed'.
+;;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed.'
 
-;; With that in mind, I want to make a suggestion to you, my reader, of not saying "we have a bug", but asking
-;; Is this a bug or a weed? And that, is my next troubleshooting tip:
+;; With that in mind, I want to make a suggestion to you, my reader, of not saying, "we have a bug," but asking
+;; Is this a bug or a weed? And that is my next troubleshooting tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
 
-;; While this distintion seems fuzzy in that both bugs and weeds are both
+;; While this distinction seems fuzzy in that both bugs and weeds are both
 ;; undesirable things, remember that a weeds defining characteristic isn't that there
 ;; is something wrong with it, but that it's just not the plant you wanted.
 
@@ -586,7 +586,7 @@
 (ImageIO/read (.toURL (.toURI (clojure.java.io/file "resources/bug-yin-yang.png"))))
 
 ;; So, do we have a bug or a weed? Is there something our program is doing wrong?
-;; Or is it that we don't understand what we really wanted in the first pace?
+;; Or is it that we don't understand what we really wanted in the first place?
 
 ;; Here is a hint, what didn't we actually test? Here are our tests for reference:
 
@@ -596,8 +596,8 @@
  "ok to transfer between unconnected nodes"
  "uneven positive and negative nodes"]
 
-;; None of those claim to minimize transactions/loans/edges other then remove cycles, but are cycles
-;; the only way you end up with extra transactions? Given the last graph we saw, clearly not.
+;; None of those claim to minimize transactions/loans/edges other than remove cycles, but are cycles
+;; the only way you end up with extra transactions? Given the last graph we saw, it clearly is not.
 ;; Does removing a cycle help? Yes. Is it enough? Clearly not.
 
 ;; The question is how does our set of consolidated loans grow such at each step we ensure the
@@ -605,7 +605,7 @@
 ;; ambiguity of this question.
 
 ;; A transaction/loan/edge is produced anytime we add two net-worths/integers/node-labels and
-;; get a non-zero result. So to avoid transactions, we want results that equal zero. So given the choice, our algorithm should always pick 2 numbers that equal
+;; get a non-zero result. So to avoid transactions, we want results that equal zero. So, given the choice, our algorithm should always pick 2 numbers that equal
 ;; zero. And given there is no option to do that, should it always remove one
 ;; node/net-worth/user from the set?
 
@@ -617,11 +617,11 @@
 ;; choice is recursive, you pick the two, that if not on this turn allow you to remove-2, then they will on the next, and the next, etc....
 
 
-;; Implemented correctly what this would do is parition our orginal set, really a multiset
+;; Implemented correctly what this would do is partition our original set, really a multiset
 ;; (duplicates allowed), into as many subsets as possible where each subset sums to 0, but themselves contain no subsets which sums to 0.
 
 ;; The 'easiest' way to find every possible subset that sums to zero, is to
-;; take, every permutation of the orginal set, reduce over it, and collect
+;; take, every permutation of the original set, reduce over it, and collect
 ;; subsets that sum to zero by adding each integer encountered either to a
 ;; current-subset or, if that current-subset + new-integer equals zero, to the
 ;; collection of subsets that equal zero:
@@ -633,18 +633,18 @@
 
 ;; So is there a better way? Or maybe caching can help?
 
-;; I wasn't able to see any better solutions, at first I thought if i could find
+;; I wasn't able to see any better solutions, at first I thought if I could find
 ;; a way to select two numbers, such that my next selection would sum to 0, that would help,
 ;; but I quickly realized thats just kicking the can, as a 0 sum might not be possible in the next
-;; solution either. This principle seems to apply to picking three numbers that sum to zero as well.
-;; As our test case demonstrates, to illusrate that here picturing where the incorrect triplet is highlited in red.
+;; solution either. This principle seems to apply to picking three numbers that sum to zero as well,
+;; as our test case demonstrates. To illustrate that, I created a picture of that test case where the incorrect triplet is highlighted in red.
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (clerk/html
   [:img {:src "https://docs.google.com/drawings/d/e/2PACX-1vRArD27FhyPzvu5xEVBg-2aBRSAQCt14jyvoQT-kDC4E6Gz6N31ubApZwZ9J_h2pW2oE0qtVvK1P4qZ/pub?w=960&h=720" }])
 
-;; A bit disheartened, because I knew a solution with permutations wouldn't scale very well,
-;; I quickly coded it to at least soldiify the idea. Just as described, we need something
+;; A bit disheartened because I knew a solution with permutations wouldn't scale very well,
+;; Discouraged, but not diswaded, I set about coding it up. First, just as we said, we will need something
 ;; to turn our set of integers into subsets that sum to zero:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
@@ -692,21 +692,21 @@
        edges->graph!))
 
 ;; Is that it then? Are we doomed to a factorial time solution if we want to
-;; guarantee the max-zero-sum? I'm not sure honestly. I'm also not sure anything can be cached, aka, we can
-;; use Dynamic programming, to make this better. After all, what would we cache? The mapping between a sum of a set and the set?
-;; That would mean that any sets we cached would themselves contain sets/integers that were guartneed to be 'the right ones'.
-;; The problem doesn't seem like it reduces. But maybe I'm wrong. Time to look afield, and this brings us to another tip...
+;; guarantee the max-zero-sum? I'm not sure, honestly. I'm also not sure anything can be cached, aka, we can
+;; use Dynamic programming to make this better. After all, what would we cache? Would we cache the sum-of-the-set to the set itself?
+;; That would mean that any sets we cached would themselves contain sets/integers that were guaranteed to be 'the right ones'.
+;; The problem doesn't seem reducible. But maybe I'm wrong. Time to look afield, and this brings us to another tip...
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Ask hard earned questions" {:background-color "grey" :color "white"})
 
-;; An answer is only as good as it's question. And so now that were armed with a good question, which is more or less our `max-zero-sum-subsets` docstring, we can start to listen to the world around us and have a chance of cutting through the noise. And so here at the end I promised i would explain why its better to avoid searching
-;; for the answer to early before your very sure what your looking for.
+;; An answer is only as good as its question. And so now that we're armed with a good question, which is more or less our `max-zero-sum-subsets` docstring, we can start to listen to the world around us and have a chance of cutting through the noise. And so here at the end I promised i would explain why its better to avoid searching
+;; for the answer too early before you're very sure what you're looking for.
 
-;; Maybe our AI overloards can help? Here is what i asked ChatGPT 4o:
+;; Maybe our AI overlords can help? Here is what I asked ChatGPT 4o:
 
 ;; > Given a list of integers that sum to zero, return the maximum partitions of that
-;; > set, which sum to zero but contain no parititions themselves, which sum to zero.
+;; > set, which sum to zero but contain no partitions themselves, which sum to zero.
 
 ;; here is the code it produced:
 
@@ -741,8 +741,8 @@ print(\"Number of partitions:\", len(partitions))
 
 
 ;; Feel free to look this over, but it doesn't seem to solve the problem. I
-;; found if asked a more general question about minimizing transactions it
-;; would through out equally vague promises followed by incorrect specifics.
+;; found if asked a more general question about minimizing transactions, it
+;; would throw out equally vague promises followed by incorrect specifics.
 
 ;; Lets move past AI and try good old Stack overflow. Here the [first,](
 ;;https://stackoverflow.com/questions/877728/what-algorithm-to-use-to-determine-minimum-number-of-actions-required-to-get-the) [second](https://softwareengineering.stackexchange.com/questions/337125/finding-the-minimum-transaction),
@@ -750,13 +750,13 @@ print(\"Number of partitions:\", len(partitions))
 
 ;; I tried looking into what the competition was doing and found that SplitWise was using the
 ;; the [minimum cost flow algorithm](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem), which i'm relative sure,
-;; doesn't guarantee the minimal amount of transactions either. This [post](https://medium.com/@subhrajeetpandey2001/splitwise-a-small-approach-of-greedy-algorithm-4039a1e919a6#:~:text=The%20Debt%20Simplification%20Algorithm%20used,as%20few%20edges%20as%20possible.) seems to agree:
+;; doesn't guarantee a minimal amount of transactions either. This [post](https://medium.com/@subhrajeetpandey2001/splitwise-a-small-approach-of-greedy-algorithm-4039a1e919a6#:~:text=The%20Debt%20Simplification%20Algorithm%20used,as%20few%20edges%20as%20possible.) seems to agree:
 
 ;; > Here’s a simplified version of the (splitwise) algorithm:
 
 ;; > Calculate the net balance for each member in the group.
 ;; > While there are outstanding balances:
-;; > Identify the member owed the most (vmax) and the member owing the most (vmin).
+;; > Identify the member owed the most (vmax) and the member owed the most (vmin).
 ;; > Transfer the minimum of |vmax| and |vmin| from vmax to vmin.
 ;; > Update the net balances for both members. If the balance becomes 0, remove them from the set of vertices.
 ;; > 3. Repeat steps 2 until all balances are settled.
@@ -767,8 +767,8 @@ print(\"Number of partitions:\", len(partitions))
 ;; >  necessary.
 
 
-;; Two things to note there, the most important is that the author agrees with my
-;; intution that it may require more transactions then necessary and if your read
+;; Two things to note there. The most important is that the author agrees with my
+;; intuition that it may require more transactions than necessary, and if you read
 ;; the steps, it's what we tried on our first attempt.
 
 ;; And finally here is a
@@ -777,10 +777,10 @@ print(\"Number of partitions:\", len(partitions))
 
 ;; > This indicates that the debt simplification problem is at least as hard as the Sum of Subsets Problem and hence it is NP-Complete
 
-;; However the author is making, i believe, a gross understatement. The subset
-;; problem finds out if there exists a *single* subset of numubers that equal a given
-;; number, discovering the maxium number of sets that the orginal set can break
-;; into that equal that number might be a degree or two more work.
+;; However, the author is making, I believe, a gross understatement. The subset
+;; problem finds out if there exists a *single* subset of numbers that equal a given
+;; number, discovering the maximum number of sets that the original set can break
+;; into that equal, that number might be a degree or two more work.
 
 ;; I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be mit professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
 
@@ -788,9 +788,9 @@ print(\"Number of partitions:\", len(partitions))
 (clerk/html
   "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ZaSMm2xvatw?si=vdslOxKN043m5F7D&amp;start=222\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>")
 
-;; Does all this mean my idea is doomed? Not at all, it just means i have to be
-;; careful in my planning. If i want to guarantee the minimal, which i do, then
-;; ill, for the moment have to keep the input size small. Or figure out a way to
+;; Does all this mean my idea is doomed? Not at all. It just means I have to be
+;; careful in my planning. If I want to guarantee the minimum, which I do, then
+;; i'll, for the moment, have to keep the input size small. Or figure out a way to
 ;; cache results, or switch between algorithms as the size increases.
 
 ;; That brings me to my last tip:
@@ -799,10 +799,10 @@ print(\"Number of partitions:\", len(partitions))
 (tip! "Bend don't Break" {:background-color "black" :color "white"})
 
 ;; Don't throw away a perfectly good garden of sunflowers just because they
-;; aren't tomato plants. Instead, brighten someones day with the gift of a
+;; aren't tomato plants. Instead, brighten someone's day with the gift of a
 ;; flower.
 
-;; So here we are at the end, lets collect the rest of our tips and pack them away in hopes of using them next time:
+;; So here we are at the end, let's collect the rest of our tips and pack them away in hopes of using them next time:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "No Pain, No Gain" {:background-color "#a12f2f" :color "white"})
@@ -815,14 +815,14 @@ print(\"Number of partitions:\", len(partitions))
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Ask hard earned questions" {:background-color "grey" :color "white"})
 
-;; Laid out like this, back to back, to me... they seem to lose much of there meaning. Why is that?
+;; Laid out like this, back to back, to me... they seem to lose much of their meaning. Why is that?
 
 ;; I believe it's because we know the best things are those which can't be
 ;; easily caught, or summarized. They rest always on the horizon, promising new
 ;; opportunities, urging us forward. As where these tips, laid out on the ground like this, seem
 ;; like things we already understand, and so, they promise no future potential.
 
-;; So here is my final advice, leave the troubleshooting tips, and take the journey.
+;; So here is my final advice: leave the troubleshooting tips and take the journey.
 
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
