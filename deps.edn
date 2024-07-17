@@ -1,6 +1,5 @@
 {:deps  {io.github.nextjournal/clerk    {:mvn/version "0.16.1016"}
-         arrowic/arrowic {:git/url "https://github.com/jackrusher/arrowic"
-                          :git/sha "73ab50393ea3f7f411f42dd6e60bee9491ee4dd3"}
+         arrowic/arrowic {:mvn/version "0.1.1"}
          org.clojure/math.combinatorics {:mvn/version "0.3.0"}}
  :aliases
  {:nextjournal/clerk

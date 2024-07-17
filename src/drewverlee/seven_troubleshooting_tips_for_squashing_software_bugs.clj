@@ -104,6 +104,7 @@
 
 ;; Is that another tip? You bet:
 
+
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Look inward before outward"
      {:background-color "blue" :color "white"})
@@ -127,7 +128,21 @@
 ;; which way the money travels. Here is how we would translate the collection of loans above to a graph:
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
-(require '[arrowic.core :refer [create-graph graph-from-seqs insert-edge! insert-vertex! create-viewer]])
+(require '[arrowic.core :refer [create-graph #_graph-from-seqs insert-edge! insert-vertex! create-viewer with-graph insert-edge!]])
+
+^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
+(defn graph-from-seqs
+  "Create a new graph from `seqs`, which is a sequence of sequences like `[a b label]` where `a` and `b` are nodes and `label` is an optional edge label."
+  [seqs]
+  (with-graph (create-graph)
+    (let [vertices (reduce (fn [m x]
+                             (assoc m x (insert-vertex! x)))
+                           {}
+                           (distinct (mapcat (partial take 2) seqs)))]
+      (doseq [[a b label] seqs]
+        (if label
+          (insert-edge! (vertices a) (vertices b) :label label)
+          (insert-edge! (vertices a) (vertices b)))))))
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (def test-case
@@ -141,7 +156,7 @@
   [edges]
   (clerk/html
     (arrowic.core/as-svg
-      (arrowic.core/graph-from-seqs edges))))
+      (graph-from-seqs edges))))
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (edges->graph! test-case)
