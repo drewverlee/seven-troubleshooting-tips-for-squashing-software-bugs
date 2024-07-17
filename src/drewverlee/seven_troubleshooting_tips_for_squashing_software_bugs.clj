@@ -565,7 +565,7 @@
 
 ;; Often, instead, what's happened is that the author understands the program they have written, and how it will behave, but doesn't really understand what the objective is. For example, imagine a gardener who accidentally bought sunflowers seeds when they meant to buy tomato plant seeds. They dig, plant, water, wait, compost, all to end up with sunflowers. Would you suggest they start the process of getting what they want by seeing what they can remove from their sunflowers?
 
-;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed.'
+;;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed.'
 
 ;; With that in mind, I want to make a suggestion to you, my reader, of not saying, "we have a bug," but asking
 ;; Is this a bug or a weed? And that is my next troubleshooting tip:
