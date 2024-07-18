@@ -804,6 +804,8 @@ print(\"Number of partitions:\", len(partitions))
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "3. Paint the problem" {:background-color "purple" :color "white"})
+
+^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "4. Map the translation" {:background-color "Orange" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "5. Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
