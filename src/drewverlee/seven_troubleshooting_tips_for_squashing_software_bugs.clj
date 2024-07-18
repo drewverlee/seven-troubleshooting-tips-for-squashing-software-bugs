@@ -276,7 +276,7 @@
 ;; Nice! We are almost ready to try and code a solution. As a first step, you might have noticed that we have two forms of expressing a loan, a hashmap:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
-{:loaner "drew" "loanee" "kirsten" :loan 10}
+{:loaner "drew" :loanee "kirsten" :loan 10}
 
 ;; and an edge expressed as a triplet:
 
