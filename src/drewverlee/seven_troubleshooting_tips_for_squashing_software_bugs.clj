@@ -9,7 +9,6 @@
   {:src "https://docs.google.com/drawings/d/e/2PACX-1vQ6rsadfjdL3n7KjCPLGknAhV5x8jen8M0xvyVWtNGrAPat80_BFyvkl7xLjyReY383gXGOCATZ9G56/pub?w=960&amp;h=360"
    :style {:height "500px"}}])
 
-
 ;; How do you fix bugs in your software? Is there a process, and if so, can it
 ;; be taught, or is it a path that has to be walked? These questions came to me
 ;; on the heels of another that I was asked recently on a job application:
@@ -34,7 +33,7 @@
 (ImageIO/read (.toURL (.toURI (clojure.java.io/file "resources/journey-start.png"))))
 
 ;; But we warned! Journeys aren't straight lines. Oh no, they are winding rivers
-;; that flows back into themselves. The landscape around us changes very little, and
+;; that flow back into themselves. The landscape around us changes very little, and
 ;; in the end, it's our precipitations, and not the world, the bends.
 
 ;; So then, let me set you along the riverbank at a place that could be called
@@ -80,11 +79,11 @@
 ;; until the end. As a result, we have a ledger of debts that need to be balanced,
 ;; they might look something like this?
 
-;;  * drew buys kirsten a 10 ice cream cone.
-;;  * kirsten buys drew a 5 dollar soda.
-;;  * drew buys katie a 5 dollar candy.
+;;  * Drew buys Kirsten a 10 ice cream cone.
+;;  * Kirsten buys drew a 5 dollar soda.
+;;  * Drew buys Katie a 5 dollar candy.
 
-;; lets clean that up a bit:
+;; let's clean that up a bit:
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (def loans
@@ -99,7 +98,7 @@
 ;; We need to turn this into a set of loans to be repaid. Oh, and wouldn't it be
 ;; nice, because time is money, and sometimes there are transferring fees, to
 ;; guarantee it's the minimal number of loans needed? Avoiding cycles like:
-;; drew paying kirsten 10, and then kirsten turns around and pays drew 5 of that back.
+;; Drew paying Kirsten 10, and then Kirsten turns around and pays Drew 5 of that back.
 
 ;; At this point, you may be tempted to ask chatGPT or search Google for similar
 ;; problems. However, there is no strong reason to because we haven't hit
@@ -171,7 +170,7 @@
   [["Drew" "Kirsten" 5]
    ["Drew" "Katie" 5]])
 
-;; Finding a useful way to map the problem to physical space always helps. Lets write that down as another tip:
+;; Finding a useful way to map the problem to physical space always helps. Let's write that down as another tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "Paint the problem" {:background-color "purple" :color "white"})
@@ -181,7 +180,7 @@
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (require '[clojure.test :refer [is are deftest testing run-tests run-test]])
 
-;; lets give our function a name to fit our current perception of the task:
+;; let's give our function a name to fit our current perception of the task:
 ^{:nextjournal.clerk/visibility {:result :hide}}
 (declare loans->minimal-loans)
 
@@ -233,7 +232,7 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (graph-tests!)
 
-;; Ok, lets add the lets add the test harness:
+;; Ok, let's add the let's add the test harness:
 
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
@@ -297,7 +296,7 @@
 (tip! "Map the translation"
      {:background-color "Orange" :color "white"})
 
-;; lets go ahead and follow our own advice:
+;; let's go ahead and follow our own advice:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
 (defn loan->edge [{:keys [loaner loanee loan]}] [loaner loanee loan])
@@ -425,7 +424,7 @@
        (map edge->loan)
        set))
 
-;; lets call our tests
+;; let's call our tests
 
 (run-test test-loans->minimal-loans)
 
@@ -440,7 +439,7 @@
 (def integers [-9 -8 -4 -2 -1 3 5 6 10])
 
 ;; Does anything jump out at you? I don't know why it would, but let me show you
-;; in a picture why this set of integers is interesting. To do that, first, lets
+;; in a picture why this set of integers is interesting. To do that, first, let's
 ;; turn it into a list of nodes. First, we make a helper to convert integers into
 ;; nodes by assigning the node-label a character as a node-id:
 
@@ -747,7 +746,7 @@ print(\"Number of partitions:\", len(partitions))
 ;; found if asked a more general question about minimizing transactions, it
 ;; would throw out equally vague promises followed by incorrect specifics.
 
-;; Lets move past AI and try good old Stack overflow. Here the [first,](
+;; Let's move past AI and try good old Stack overflow. Here the [first,](
 ;;https://stackoverflow.com/questions/877728/what-algorithm-to-use-to-determine-minimum-number-of-actions-required-to-get-the) [second](https://softwareengineering.stackexchange.com/questions/337125/finding-the-minimum-transaction),
 ;; and [third](https://softwareengineering.stackexchange.com/questions/337125/finding-the-minimum-transaction) link also, as afar as i can tell, fail to suggest an algorithm which guarantees minimal transactions
 
@@ -759,7 +758,7 @@ print(\"Number of partitions:\", len(partitions))
 
 ;; > Calculate the net balance for each member in the group.
 ;; > While there are outstanding balances:
-;; > Identify the member owed the most (vmax) and the member owed the most (vmin).
+;; > Identify the member owed the most (vmax) and the member owing the most (vmin).
 ;; > Transfer the minimum of |vmax| and |vmin| from vmax to vmin.
 ;; > Update the net balances for both members. If the balance becomes 0, remove them from the set of vertices.
 ;; > 3. Repeat steps 2 until all balances are settled.
@@ -786,7 +785,7 @@ print(\"Number of partitions:\", len(partitions))
 ;; into that equal, that number might be a degree or two more work.
 
 ;; So was I, in trying to understand why I couldn't find a better solution, trying to prove that P = NP all this time? It's hard for me to say beyond it felt maddening. Regardless, I didn't reach any outcome, so the turning award is still up for grabs.
-;; Realistically, I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be mit professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
+;; Realistically, I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be MIT Professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (clerk/html
