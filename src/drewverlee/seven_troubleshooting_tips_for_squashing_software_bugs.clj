@@ -5,7 +5,10 @@
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (clerk/html
- [:img {:src "https://docs.google.com/drawings/d/e/2PACX-1vQ6rsadfjdL3n7KjCPLGknAhV5x8jen8M0xvyVWtNGrAPat80_BFyvkl7xLjyReY383gXGOCATZ9G56/pub?w=960&amp;h=720"}])
+ [:img
+  {:src "https://docs.google.com/drawings/d/e/2PACX-1vQ6rsadfjdL3n7KjCPLGknAhV5x8jen8M0xvyVWtNGrAPat80_BFyvkl7xLjyReY383gXGOCATZ9G56/pub?w=960&amp;h=360"
+   :style {:height "500px"}}])
+
 
 ;; How do you fix bugs in your software? Is there a process, and if so, can it
 ;; be taught, or is it a path that has to be walked? These questions came to me
