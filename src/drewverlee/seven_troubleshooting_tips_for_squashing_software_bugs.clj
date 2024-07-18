@@ -785,7 +785,8 @@ print(\"Number of partitions:\", len(partitions))
 ;; number, discovering the maximum number of sets that the original set can break
 ;; into that equal, that number might be a degree or two more work.
 
-;; I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be mit professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
+;; So was I, in trying to understand why I couldn't find a better solution, trying to prove that P = NP all this time? It's hard for me to say beyond it felt maddening. Regardless, I didn't reach any outcome, so the turning award is still up for grabs.
+;; Realistically, I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be mit professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (clerk/html
