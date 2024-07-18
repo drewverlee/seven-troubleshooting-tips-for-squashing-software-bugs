@@ -64,9 +64,6 @@
   [message styles]
   (clerk/html (tip message styles)))
 
-(tip "" {:background-color "blue"})
-
-
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "1. No Pain, No Gain" {:background-color "red"
                              :color            "white"})
