@@ -51,6 +51,10 @@
        (merge
         {:padding       "10px"
          :border-radius "5px"
+         :opacity "50%"
+         :border-left-color (str "dark" (:background-color styles))
+         :border-left-width "10px"
+         :border-style "solid"
          :font-size     "x-large"
          :text-align    "center"}
         styles)} message])
@@ -60,9 +64,12 @@
   [message styles]
   (clerk/html (tip message styles)))
 
+(tip "" {:background-color "blue"})
+
+
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "1. No Pain, No Gain" {:background-color "#a12f2f"
-                          :color            "white"})
+(tip! "1. No Pain, No Gain" {:background-color "red"
+                             :color            "white"})
 
 ;; Great, we hit our first tip, let's introduce the pain by understanding how we got there.
 
@@ -797,7 +804,7 @@ print(\"Number of partitions:\", len(partitions))
 ;; So here we are at the end, let's collect the rest of our tips and pack them away in hopes of using them next time:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "1. No Pain, No Gain" {:background-color "#a12f2f" :color "white"})
+(tip! "1. No Pain, No Gain" {:background-color "red" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (tip! "2. Look inward before outward" {:background-color "blue" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
