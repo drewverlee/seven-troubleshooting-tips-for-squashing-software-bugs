@@ -61,7 +61,7 @@
   (clerk/html (tip message styles)))
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "No Pain, No Gain" {:background-color "#a12f2f"
+(tip! "1. No Pain, No Gain" {:background-color "#a12f2f"
                           :color            "white"})
 
 ;; Great, we hit our first tip, let's introduce the pain by understanding how we got there.
@@ -108,7 +108,7 @@
 
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Look inward before outward"
+(tip! "2. Look inward before outward"
      {:background-color "blue" :color "white"})
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
@@ -168,7 +168,7 @@
 ;; Finding a useful way to map the problem to physical space always helps. Let's write that down as another tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Paint the problem" {:background-color "purple" :color "white"})
+(tip! "3. Paint the problem" {:background-color "purple" :color "white"})
 
 ;; This is just one example. However, let's look at several more to ensure we get the idea. We will want a fast way to write and read the cases, so we want to be as concise as possible
 
@@ -288,7 +288,7 @@
 ;; I like this idea; let's add it to our troubleshooting tips:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Map the translation"
+(tip! "4. Map the translation"
      {:background-color "Orange" :color "white"})
 
 ;; let's go ahead and follow our own advice:
@@ -564,7 +564,7 @@
 ;; Is this a bug or a weed? And that is my next troubleshooting tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
+(tip! "5. Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
 
 ;; While this distinction seems fuzzy in that both bugs and weeds are both
 ;; undesirable things, remember that a weeds defining characteristic isn't that there
@@ -635,7 +635,7 @@
   [:img {:src "https://docs.google.com/drawings/d/e/2PACX-1vRArD27FhyPzvu5xEVBg-2aBRSAQCt14jyvoQT-kDC4E6Gz6N31ubApZwZ9J_h2pW2oE0qtVvK1P4qZ/pub?w=960&h=720" }])
 
 ;; A bit disheartened because I knew a solution with permutations wouldn't scale very well,
-;; Discouraged, but not diswaded, I set about coding it up. First, just as we said, we will need something
+;; Discouraged, but not dissuaded, I set about coding it up. First, just as we said, we will need something
 ;; to turn our set of integers into subsets that sum to zero:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
@@ -689,7 +689,7 @@
 ;; The problem doesn't seem reducible. But maybe I'm wrong. Time to look afield, and this brings us to another tip...
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Ask hard earned questions" {:background-color "grey" :color "white"})
+(tip! "6. Ask hard earned questions" {:background-color "grey" :color "white"})
 
 ;; An answer is only as good as its question. And so now that we're armed with a good question, which is more or less our `max-zero-sum-subsets` docstring, we can start to listen to the world around us and have a chance of cutting through the noise. And so here at the end I promised i would explain why its better to avoid searching
 ;; for the answer too early before you're very sure what you're looking for.
@@ -773,7 +773,7 @@ print(\"Number of partitions:\", len(partitions))
 ;; number, discovering the maximum number of sets that the original set can break
 ;; into that equal, that number might be a degree or two more work.
 
-;; So was I, in trying to understand why I couldn't find a better solution, trying to prove that P = NP all this time? It's hard for me to say beyond it felt maddening. Regardless, I didn't reach any outcome, so the turning award is still up for grabs.
+;; So was I, in trying to understand why I couldn't find a better solution, trying to prove that P = NP all this time? It's hard for me to say beyond it felt maddening. Regardless, I didn't reach any outcome, so the Turing Award is still up for grabs.
 ;; Realistically, I believe understanding the mathematical nature of the problem, would require a good bit of investment to get correct. A good place to start would be MIT Professor Erik Demaine's lectures on Algorithms. I think its likely our goal of finding the minimal transactions is related the 2 or 3-partition problem which Erik is talking about here:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -788,7 +788,7 @@ print(\"Number of partitions:\", len(partitions))
 ;; That brings me to my last tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Bend don't Break" {:background-color "black" :color "white"})
+(tip! "7. Bend don't Break" {:background-color "black" :color "white"})
 
 ;; Don't throw away a perfectly good garden of sunflowers just because they
 ;; aren't tomato plants. Instead, brighten someone's day with the gift of a
@@ -797,20 +797,28 @@ print(\"Number of partitions:\", len(partitions))
 ;; So here we are at the end, let's collect the rest of our tips and pack them away in hopes of using them next time:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "No Pain, No Gain" {:background-color "#a12f2f" :color "white"})
+(tip! "1. No Pain, No Gain" {:background-color "#a12f2f" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Look inward before outward" {:background-color "blue" :color "white"})
+(tip! "2. Look inward before outward" {:background-color "blue" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Map the translation" {:background-color "Orange" :color "white"})
+
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
+(tip! "3. Paint the problem" {:background-color "purple" :color "white"})
+(tip! "4. Map the translation" {:background-color "Orange" :color "white"})
 ^{:nextjournal.clerk/visibility {:code :hide}}
-(tip! "Ask hard earned questions" {:background-color "grey" :color "white"})
+(tip! "5. Ask 'Weed or Bug?'" {:background-color "green" :color "white"})
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tip! "6. Ask hard earned questions" {:background-color "grey" :color "white"})
+
+^{:nextjournal.clerk/visibility {:code :hide}}
+(tip! "7. Bend don't Break" {:background-color "black" :color "white"})
+
+
 
 ;; Laid out like this, back to back, to me... they seem to lose much of their meaning. Why is that?
 
 ;; I believe it's because we know the best things are those which can't be
-;; easily caught, or summarized. They rest always on the horizon, promising new
+;; easily taught, or summarized. They rest always on the horizon, promising new
 ;; opportunities, urging us forward. As where these tips, laid out on the ground like this, seem
 ;; like things we already understand, and so, they promise no future potential.
 
