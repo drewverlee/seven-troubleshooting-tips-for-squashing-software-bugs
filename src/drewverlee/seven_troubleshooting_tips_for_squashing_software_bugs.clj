@@ -77,13 +77,13 @@
 ;; didn't pay enough, but they are not sure who owes who what. Here is our painful
 ;; headache, we avoided the cost of settling up each night, only to delay it
 ;; until the end. As a result, we have a ledger of debts that need to be balanced,
-;; they might look something like this?
+;; they might look something like this:
 
 ;;  * Drew buys Kirsten a 10 ice cream cone.
 ;;  * Kirsten buys drew a 5 dollar soda.
 ;;  * Drew buys Katie a 5 dollar candy.
 
-;; let's clean that up a bit:
+;; let's clean that up a bit by putting it in a table and giving our data well defined labels:
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (def loans
@@ -97,7 +97,7 @@
 
 ;; We need to turn this into a set of loans to be repaid. Oh, and wouldn't it be
 ;; nice, because time is money, and sometimes there are transferring fees, to
-;; guarantee it's the minimal number of loans needed? Avoiding cycles like:
+;; guarantee it's the minimal number of loans needed? This would mean avoiding cycles like:
 ;; Drew paying Kirsten 10, and then Kirsten turns around and pays Drew 5 of that back.
 
 ;; At this point, you may be tempted to ask chatGPT or search Google for similar
@@ -146,12 +146,6 @@
           (insert-edge! (vertices a) (vertices b) :label label)
           (insert-edge! (vertices a) (vertices b)))))))
 
-^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
-(def test-case
-  [["Drew" "Kirsten" 10]
-   ["Kirsten" "Drew" 5]
-   ["Drew" "Katie" 5]])
-
 
 ^{:nextjournal.clerk/visibility {:code :hide :result :hide}}
 (defn edges->graph!
@@ -160,8 +154,9 @@
     (arrowic.core/as-svg
       (graph-from-seqs edges))))
 
-^{:nextjournal.clerk/visibility {:code :hide}}
-(edges->graph! test-case)
+(edges->graph! [["Drew" "Kirsten" 10]
+                ["Kirsten" "Drew" 5]
+                ["Drew" "Katie" 5]])
 
 ;; And here is the graph after we consolidate the loans:
 
@@ -184,7 +179,7 @@
 ^{:nextjournal.clerk/visibility {:result :hide}}
 (declare loans->minimal-loans)
 
-;; Our tests should always have to justify themselves with a name; that way, if they fail, we have some idea of what we thought we were testing in the first place. Before the tests, let your eyes wander across the graph representations:
+;; Our tests should always have to justify themselves with a name; that way, if they fail, we have some idea of what we thought we were testing in the first place. Before the tests, let your eyes wander across the graph representations of those test cases:
 
 ^{:nextjournal.clerk/visibility {:result :hide :code :hide}}
 (def test-cases
@@ -274,7 +269,7 @@
              {:loaner "merry", :loanee "pippin", :loan 1604}
              {:loaner "pippin", :loanee "sam", :loan 204}}))))
 
-;; Nice! We are almost ready to try and code a solution. You might have noticed that we have two forms of expressing a loan, a hashmap:
+;; Nice! We are almost ready to try and code a solution. As a first step, you might have noticed that we have two forms of expressing a loan, a hashmap:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
 {:loaner "drew" "loanee" "kirsten" :loan 10}
@@ -380,7 +375,7 @@
                       smallest-negative-node-id
                       largest-posative-node-integer-label]))))))
 
-;; it looks like our test cases, while helping us refine our idea, will need
+;; It looks like our test cases, while helping us refine our idea, will need
 ;; some translation from our existing cases which deal with edges to nodes, luckily we have a function for that `edges->nodes`
 ;; we can just apply that and continue with adding one extra test to capture that without two lists, we could add a transaction.
 
@@ -401,7 +396,7 @@
 
 (run-test test-nodes->minimal-edges)
 
-;; all the tests passed. Great that means all we have to do is translate our edges back to loans, here is the function to do that:
+;; All the tests passed. Great that means all we have to do is translate our edges back to loans, here is the function to do that:
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
 (defn edge->loan
@@ -561,15 +556,11 @@
 ;; Interestingly, maybe a 1,000 years ago, 'bug' roughly meant bugbear. And now,
 ;; to most people it refers to those very little things that fly or crawl around.
 
-;; The common theme here is that bugs are useless at best and likely irritating creatures that most would like to remove, which is why we call it 'debugging software'.
-
-;; However, I feel this outlook, when applied to troubleshooting, of assuming something has to be _removed_, is often misguided.
+;; The common theme here is that bugs are useless at best and likely irritating creatures that most would like to remove, which is why we call it 'debugging software'. However, I feel this outlook, when applied to troubleshooting, of assuming something has to be _removed_, is often misguided.
 
 ;; Often, instead, what's happened is that the author understands the program they have written, and how it will behave, but doesn't really understand what the objective is. For example, imagine a gardener who accidentally bought sunflowers seeds when they meant to buy tomato plant seeds. They dig, plant, water, wait, compost, all to end up with sunflowers. Would you suggest they start the process of getting what they want by seeing what they can remove from their sunflowers?
 
-;;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed.'
-
-;; With that in mind, I want to make a suggestion to you, my reader, of not saying, "we have a bug," but asking
+;;  There was nothing wrong with the plant they have, beyond that it's not the one they wanted. Gardeners call this undesirable plant a 'weed.' With that in mind, I want to make a suggestion to you, my reader, of not saying, "we have a bug," but asking:
 ;; Is this a bug or a weed? And that is my next troubleshooting tip:
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
@@ -579,9 +570,7 @@
 ;; undesirable things, remember that a weeds defining characteristic isn't that there
 ;; is something wrong with it, but that it's just not the plant you wanted.
 
-;; So I'm using the *software weed* to  indicate something is _lacking_. As where a *software bug* suggests something needs to be _removed_.
-
-;; What matters is that the question starts to divide the problem. And breaking
+;; So a *software weed* indicates something needs to be _added_. As where a *software bug* suggests something needs to be _removed_. What matters is that the question starts to divide the problem. And breaking
 ;; the problem apart is the heart of effective troubleshooting.
 
 ^{:nextjournal.clerk/visibility {:code :hide}}
