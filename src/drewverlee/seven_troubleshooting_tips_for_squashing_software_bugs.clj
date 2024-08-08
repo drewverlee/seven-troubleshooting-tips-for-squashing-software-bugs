@@ -83,7 +83,7 @@
 ;; until the end. As a result, we have a ledger of debts that need to be balanced,
 ;; they might look something like this:
 
-;;  * Drew buys Kirsten a 10 ice cream cone.
+;;  * Drew buys Kirsten a 10 dollar ice cream cone.
 ;;  * Kirsten buys drew a 5 dollar soda.
 ;;  * Drew buys Katie a 5 dollar candy.
 
