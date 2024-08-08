@@ -231,7 +231,7 @@
 ^{:nextjournal.clerk/visibility {:code :hide}}
 (graph-tests!)
 
-;; Ok, let's add the let's add the test harness:
+;; Ok, let's add the test harness:
 
 
 ^{:nextjournal.clerk/visibility {:result :hide}}
